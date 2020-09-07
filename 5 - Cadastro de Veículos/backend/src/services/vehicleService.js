@@ -96,15 +96,16 @@ async function validateRequiredData(vehicle) {
 
 exports.add = async (vehicle) => {
 	await validateRequiredData(vehicle);
-	await Vehicle.create(vehicle);
+	return await Vehicle.create(vehicle);
 };
 exports.update = async (id, vehicle) => {
 	await validateRequiredData(vehicle);
 	if (!ObjectId.isValid(id)) throw new Error('Id do veículo inválido');
 
-	const document = await Vehicle.findOneAndUpdate({ _id: ObjectId(id) }, vehicle);
+	const document = await Vehicle.findOneAndUpdate({ _id: ObjectId(id) }, vehicle, { new: true });
 
 	if (!document) throw new Error('Veículo não encontrado');
+	return document;
 };
 exports.patch = async (id, attributes) => {
 	const { veiculo, marca, ano, descricao, vendido } = attributes;
@@ -115,9 +116,10 @@ exports.patch = async (id, attributes) => {
 	if (!ObjectId.isValid(id)) throw new Error('Id do veículo inválido');
 	if (marca) await validateBrand(marca);
 
-	const document = await Vehicle.findOneAndUpdate({ _id: ObjectId(id) }, { $set: attributes });
+	const document = await Vehicle.findOneAndUpdate({ _id: ObjectId(id) }, { $set: attributes }, { new: true });
 
 	if (!document) throw new Error('Veículo não encontrado');
+	return document;
 };
 exports.remove = async (id) => {
 	if (!ObjectId.isValid(id)) throw new Error('Id do veículo inválido');

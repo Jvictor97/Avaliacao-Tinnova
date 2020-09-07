@@ -1,24 +1,29 @@
 {
-	"name": "api",
-	"version": "1.0.0",
-	"description": "Tinnova Vehicles API",
-	"main": "index.js",
-	"author": "João Souza",
-	"license": "MIT",
-	"private": true,
-	"dependencies": {
-		"axios": "^0.20.0",
-		"body-parser": "^1.19.0",
-		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
-		"mongoose": "^5.10.3"
-	},
-	"scripts": {
-		"start": "node .",
-		"dev": "nodemon --ignore __tests__",
-		"test": "jest --runInBand --verbose"
-	},
-	"devDependencies": {
-		"nodemon": "^2.0.4"
-	}
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Tinnova Vehicles API",
+  "main": "index.js",
+  "author": "João Souza",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --ignore __tests__",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "factory-girl": "^5.0.4",
+    "faker": "marak/Faker.js",
+    "jest": "^26.4.2",
+    "mongodb-memory-server": "^6.6.7",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
 }

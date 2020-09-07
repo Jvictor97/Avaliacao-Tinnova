@@ -29,8 +29,8 @@ exports.getById = async (req, res) => {
 exports.add = async (req, res) => {
 	try {
 		const vehicle = req.body;
-		await vehicleService.add(vehicle);
-		return res.status(201).send({ message: 'Veículo criado com sucesso' });
+		const document = await vehicleService.add(vehicle);
+		return res.status(201).send({ message: 'Veículo criado com sucesso', vehicle: document });
 	} catch (error) {
 		return res.status(409).send({ message: error.message, error: true });
 	}
@@ -39,9 +39,9 @@ exports.update = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const vehicle = req.body;
-		await vehicleService.update(id, vehicle);
+		const document = await vehicleService.update(id, vehicle);
 
-		return res.status(200).send({ message: 'Veículo atualizado com sucesso' });
+		return res.status(200).send({ message: 'Veículo atualizado com sucesso', vehicle: document });
 	} catch (error) {
 		return res.status(404).send({ message: error.message, error: true });
 	}
@@ -50,9 +50,9 @@ exports.patch = async (req, res) => {
 	try {
 		const { id } = req.params;
 		const attributes = req.body;
-		await vehicleService.patch(id, attributes);
+		const document = await vehicleService.patch(id, attributes);
 
-		return res.status(200).send({ message: 'Veículo atualizado com sucesso' });
+		return res.status(200).send({ message: 'Veículo atualizado com sucesso', vehicle: document });
 	} catch (error) {
 		return res.status(404).send({ message: error.message, error: true });
 	}
