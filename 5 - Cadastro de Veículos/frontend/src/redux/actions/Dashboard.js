@@ -10,25 +10,17 @@ export const resetData = () => ({
 });
 
 export const getData = () => async (dispatch, getState, api) => {
-	// try {
-	// 	const countResponse = await api.get(dashboardEndpoints.count);
-	// 	const wageResponse = await api.get(dashboardEndpoints.totalWage);
-	// 	const { count } = countResponse.data;
-	// 	const { totalWage } = wageResponse.data;
-	// 	const avgWorkHours = 21 * 8; // 21 work days per month and 8 work hours per day
-	// 	dispatch(updateData('staff', count));
-	// 	dispatch(updateData('cost', totalWage * avgWorkHours));
-	// } catch (error) {
-	// 	return error.response;
-	// }
-};
+	try {
+		const soldResponse = await api.get('/find?q=sold');
+		const lastWeekResponse = await api.get('/find?q=lastWeek');
+		const decadeResponse = await api.get('/find?q=decadeDistribution');
+		const manufacturerResponse = await api.get('/find?q=manufacturerDistribution');
 
-export const getChartData = () => async (dispatch, getState, api) => {
-	// try {
-	// 	const response = await api.get(dashboardEndpoints.cost);
-	// 	dispatch(updateData('chartData', response.data));
-	// 	return response;
-	// } catch (error) {
-	// 	return error.response;
-	// }
+		dispatch(updateData('sold', soldResponse.data));
+		dispatch(updateData('lastWeek', lastWeekResponse.data));
+		dispatch(updateData('decadeDistribution', decadeResponse.data));
+		dispatch(updateData('manufacturerDistribution', manufacturerResponse.data));
+	} catch (error) {
+		return error.response;
+	}
 };

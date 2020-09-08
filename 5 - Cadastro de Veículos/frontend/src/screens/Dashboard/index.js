@@ -3,8 +3,10 @@ import Dashboard from './Dashboard';
 import { getData } from 'redux/actions/Dashboard';
 
 const mapStateToProps = ({ dashboard }) => ({
-	staff: dashboard.staff,
-	cost: dashboard.cost,
+	sold: dashboard.sold,
+	lastWeek: dashboard.lastWeek,
+	manufacturerDistribution: dashboard.manufacturerDistribution,
+	decadeDistribution: dashboard.decadeDistribution,
 });
 
 const mapDispatchToProps = (dispatch) => ({

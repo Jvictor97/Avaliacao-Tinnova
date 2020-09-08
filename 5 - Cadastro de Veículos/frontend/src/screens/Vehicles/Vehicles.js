@@ -11,7 +11,6 @@ import LeftDrawer from 'components/LeftDrawer';
 import MaterialTable from 'material-table';
 import Alert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
-import CostPanels from 'components/CostPanels';
 
 function Copyright() {
 	return (

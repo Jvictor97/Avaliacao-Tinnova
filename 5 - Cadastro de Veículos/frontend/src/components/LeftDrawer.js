@@ -13,7 +13,6 @@ import clsx from 'clsx';
 import NavBarItems from './NavBarItems';
 import { connect } from 'react-redux';
 import { editConfig } from 'redux/actions/Config';
-import { useHistory } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -88,8 +87,7 @@ const mapDispatchToProps = (dispatch) => ({
 	editConfig: (key, value) => dispatch(editConfig(key, value)),
 });
 
-export function LeftDrawer({ resetData, title, isDrawerOpen, editConfig }) {
-	const history = useHistory();
+export function LeftDrawer({ title, isDrawerOpen, editConfig }) {
 	const classes = useStyles();
 
 	const handleDrawerOpen = () => {

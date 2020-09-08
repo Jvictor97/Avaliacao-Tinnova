@@ -1,9 +1,10 @@
 import { dashboard } from '../actionTypes';
 
 const initialState = {
-	staff: 0,
-	cost: 0,
-	chartData: [],
+	sold: [],
+	lastWeek: [],
+	decadeDistribution: [],
+	manufacturerDistribution: [],
 };
 
 export default (state = initialState, action) => {
