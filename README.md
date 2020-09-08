@@ -4,7 +4,7 @@ This repository contains the answers to 5 Tinnova proposed challenges.
 
 ## Installing
 
-You may clone this repo using Https or SSH as follows:
+You may clone this repo using HTTPS or SSH as follows:
 
 ```
 HTTPS: https://github.com/Jvictor97/Avaliacao-Tinnova.git
